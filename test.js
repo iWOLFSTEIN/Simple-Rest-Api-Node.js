@@ -4,17 +4,17 @@ const express = require("express");
 const mongoose = require("mongoose");
 require("dotenv/config");
 const bodyParser = require("body-parser");
+const cors = require("cors");
+// Importing the routes
+
+const postsRoutes = require("./Routes/posts");
 
 
 
 const app = express();
-app.use(bodyParser.json());
 
 
 
-// Importing the routes
-
-const postsRoutes = require("./Routes/posts");
 
 
 // Adding a Middleware (a function that runs when a specific route is used)
@@ -22,6 +22,8 @@ const postsRoutes = require("./Routes/posts");
 // app.use("/hello", ()=>{
 //     console.log("printing a hello world message");
 // });
+app.use(bodyParser.json());
+app.use(cors());
 app.use("/posts", postsRoutes);
 
 

@@ -3,6 +3,17 @@ const express = require("express");
 const user = require("../Models/user");
 const router = express.Router();
 
+// VALIDATION
+
+const Joi = require("@hapi/joi");
+
+
+var schema = {
+name: Joi.string().min(6).required(),
+email: Joi.string().min(7).required().email(),
+password: Joi.string().min(6).required()
+};
+
 
 router.post("/registration", async (request, response)=>{
 

@@ -7,6 +7,7 @@ const cors = require("cors");
 
 // Importing the routes
 const postsRoutes = require("./Routes/posts");
+const user_model = require("./Routes/register");
 
 
 const app = express();
@@ -17,6 +18,7 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cors());
 app.use("/posts", postsRoutes);
+app.use("/user", user_model);
 
 
 
